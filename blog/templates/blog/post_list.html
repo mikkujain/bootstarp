@@ -1,0 +1,61 @@
+{% load staticfiles %}
+<html>
+	<head>
+		<title> My First Blog </title>
+		<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+	</head>
+	<body>
+		<div class="page-header">
+			<h1><a href="/">Mikku Blog</a></h1>
+		</div>
+
+		<div class="content container">
+			<div class="row">
+				<div class="col-md-8">
+					{% for post in posts %}
+						<div class="post">
+							<div class="date">
+								<p>published: {{ post.published_date }}</p>
+							</div>
+        					<h1><a href="">{{ post.title }}</a></h1>
+        					<p>{{ post.text|linebreaksbr }}</p>
+    					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+  
+		<div>
+			<p>published: 28.6.2018, 03:10</p>
+            <h2><a href="">My first post</a></h2>
+            <p>Save the moments that matter. Blogger lets you safely store thousands of posts, photos, and more with Google for free.</p>
+		</div>
+
+		<div>
+			<p>published: 29.6.2018, 05:10</p>
+			<h2><a href="">My second post</a></h2>
+			<p> The future of news can’t be built on a broken view of the past.</p>
+		</div>
+		<p>Hi there!</p>
+    	<p>It works!</p>
+	</body>
+    
+</html>
+
+<!-- {% for post in posts %}
+    {{ post }}
+{% endfor %} -->
+<!-- {% block content %}
+	{% for post in posts %}
+		<div class="post">
+			<div class="date">
+				{{ post.published_date }}
+			</div>
+			<h1><a href="">{{ post.title }}</a></h1>
+			<p>{{ post.text|linebreaksbr }}</p>
+		</div>
+	{% endfor %}
+{% endblock %} -->
